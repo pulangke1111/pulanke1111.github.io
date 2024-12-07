@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>关于我 - PlkBlog</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body class="about-body">
+  <header>
+    <nav>
+      <div class="logo">
+        <a href="/">PlkBlog</a>
+      </div>
+      <div class="nav-links">
+        <a href="index.html" class="nav-item">博文</a>
+        <a href="about.html" class="nav-item active">关于</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="about-page">
+    <div class="stars"></div>
+    <div class="about-container">
+      <div class="avatar-section">
+        <img src="https://picsum.photos/200/200" alt="头像" class="avatar">
+        <div class="avatar-info">
+          <h1>你好，我叫 plk | 普朗克</h1>
+          <p class="subtitle">热爱生活，无限进步</p>
+        </div>
+      </div>
+
+      <div class="info-cards">
+        <div class="info-card">
+          <div class="card-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3>开启创造力</h3>
+          <p>热爱生活，享受创造的过程</p>
+        </div>
+
+        <div class="info-card">
+          <div class="card-icon">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <h3>无限进步</h3>
+          <p>保持学习，永不止步</p>
+        </div>
+
+        <div class="info-card">
+          <div class="card-icon">
+            <i class="fas fa-camera"></i>
+          </div>
+          <h3>记录生活</h3>
+          <p>用镜头捕捉美好瞬间</p>
+        </div>
+      </div>
+
+      <div class="social-links">
+        <a href="https://github.com/yourusername" target="_blank" class="social-link">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="#" class="social-link" id="qq-btn">
+          <i class="fab fa-qq"></i>
+        </a>
+        <a href="#" class="social-link" id="wechat-btn">
+          <i class="fab fa-weixin"></i>
+        </a>
+      </div>
+
+      <!-- 微信二维码弹窗 -->
+      <div class="qr-modal" id="qr-modal">
+        <div class="qr-container">
+          <img src="assets/weixin.jpg" alt="微信二维码" class="qr-code">
+          <div class="qr-title">扫码添加微信</div>
+          <div class="qr-subtitle">期待与你交流</div>
+        </div>
+      </div>
+
+      <!-- QQ二维码弹窗 -->
+      <div class="qr-modal" id="qq-modal">
+        <div class="qr-container">
+          <img src="assets/QQ.jpg" alt="QQ二维码" class="qr-code">
+          <div class="qr-title">扫码添加QQ</div>
+          <div class="qr-subtitle">期待与你交流</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // 获取元素
+    const wechatBtn = document.getElementById('wechat-btn');
+    const qrModal = document.getElementById('qr-modal');
+    const qqBtn = document.getElementById('qq-btn');
+    const qqModal = document.getElementById('qq-modal');
+
+    // 点击微信按钮显示二维码
+    wechatBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      qrModal.classList.add('active');
+    });
+
+    // 点击QQ按钮显示二维码
+    qqBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      qqModal.classList.add('active');
+    });
+
+    // 点击空白处关闭二维码
+    qrModal.addEventListener('click', (e) => {
+      if (e.target === qrModal) {
+        qrModal.classList.remove('active');
+      }
+    });
+
+    // 点击空白处关闭QQ二维码
+    qqModal.addEventListener('click', (e) => {
+      if (e.target === qqModal) {
+        qqModal.classList.remove('active');
+      }
+    });
+
+    // ESC键关闭二维码
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        if (qrModal.classList.contains('active')) {
+          qrModal.classList.remove('active');
+        }
+        if (qqModal.classList.contains('active')) {
+          qqModal.classList.remove('active');
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
